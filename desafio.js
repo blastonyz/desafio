@@ -75,7 +75,7 @@ productManager.addProduct(
     10,
  )
 
- //validacion de campos completos
+ //Prueba de validacion de campos completos
  productManager.addProduct(
     "Compresor 1/2hp",
     35000,
@@ -84,5 +84,6 @@ productManager.addProduct(
 
  productManager.getProductsbyId(1);
  productManager.getProductsbyId(2);
-
+ //busqueda de producto Id inexistente
+ productManager.getProductsbyId(8);   
 console.log("Productos agregados",productManager.getProducts() )
