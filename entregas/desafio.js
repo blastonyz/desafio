@@ -78,7 +78,7 @@ class ProductManager{
        
     }
 
-    async updateProduct(prodid,newTitle,newDescription,newPrice,NewThumbnail,newCode,NewStock){
+    async updateProduct(prodid,newTitle,newDescription,newPrice,NewThumbnail,newCode,newStock){
         
         if(!fs.existsSync(this.path)){
             return console.log('el archivo no se encuentra')
@@ -89,7 +89,7 @@ class ProductManager{
                     const index = list.findIndex((e)=> e.id === prodid);
                     console.log(index)
                        if(index !== -1){
-                        const updatedObj = {...this.products[index],title: newTitle, description: newDescription, price: newPrice,thumbnail: NewThumbnail, code: newCode, stock: NewStock};
+                        const updatedObj = {...this.products[index],title: newTitle ? newTitle: this.products[index].title, description: newDescription ? newDescription : this.products[index].description, price: newPrice ? newPrice: this.products[index].price,thumbnail: NewThumbnail ? NewThumbnail: this.products[index].thumbnail , code: newCode? newCode:this.products[index].code, stock: newStock? newStock:this.products[index].stock};
                         this.products[index] = updatedObj;
                         console.log(this.products)
                         const content = JSON.stringify(this.products,null,'\t')
@@ -112,7 +112,7 @@ class ProductManager{
         if(!fs.existsSync(this.path)){
             return console.log('el archivo no se encuentra')
         }else{
-            try {                           
+            try {                          
                     const listJSON = await fs.promises.readFile(this.path,'utf-8');
                     const list = JSON.parse(listJSON);
                     const deletedList = list.filter((e)=> e.id !== prodid)
@@ -122,7 +122,7 @@ class ProductManager{
                         await fs.promises.writeFile(this.path,content,'utf-8')
                         return console.log('producto borrado')
                           } catch (error) {
-                         console.log(`No pudo actualizarse la lista: ${error.message}`) 
+                         console.log(`No se pudo borrar: ${error.message}`) 
                           }
                   
             } catch (error) {
@@ -165,11 +165,12 @@ class ProductManager{
  productManager.getProductsbyId(1);
 
 
+ //updateproduct
 //el primer parametro es el id del producto que actualizaremos, mientras que los otros parametros corresponden a los atributos a actualizar
 
-productManager.updateProduct(2,"torno","neumatico",39000,"torno.png",322,85);
+productManager.updateProduct(2,"torno","neumatico","","","","");
 
-//en consola se ve bien,pero rompe el json; agraga el objeto a borrar sin id, si no se ejecuta update product, funciona bien
+//Delete en consola se ve bien,pero rompe el json; agraga el objeto a borrar sin id, si no se ejecuta update product, funciona bien
 productManager.deleteProduct(3);
 
 
