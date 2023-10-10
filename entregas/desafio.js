@@ -168,12 +168,12 @@ class ProductManager{
  //updateproduct
 //el primer parametro es el id del producto que actualizaremos, mientras que los otros parametros corresponden a los atributos a actualizar
 
-productManager.updateProduct(2,"torno","neumatico","","","","");
+productManager.updateProduct(2,"torno","neumatico","","","","")
+
+
 
 //Delete en consola se ve bien,pero rompe el json; agraga el objeto a borrar sin id, si no se ejecuta update product, funciona bien
-productManager.deleteProduct(3);
-
-
+productManager.deleteProduct(3); 
 
 
  //validacion de no igualdad de atributo code

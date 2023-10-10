@@ -10,14 +10,16 @@
 	},
 	{
 		"id": 2,
-		"title": "Lijadora Orbital",
-		"description": "5 velocidades",
+		"title": "torno",
+		"description": "neumatico",
 		"price": 35000,
 		"thumbnail": "lijadora.jpg",
 		"code": 301,
 		"stock": 10
-	}
-]	"title": "Compresor Daewo",
+	},
+	{
+		"id": 3,
+		"title": "Compresor Daewo",
 		"description": "1/2hp",
 		"price": 55000,
 		"thumbnail": "compresor.jpg",
